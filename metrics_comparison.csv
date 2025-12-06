@@ -1,0 +1,4 @@
+Approach,Exact Accuracy (%),Within-1 Accuracy (%),JSON Validity (%),Mean Absolute Error,RMSE
+Zero-Shot,52.0,87.0,87.5,0.62,0.964
+Few-Shot,46.0,79.0,38.0,0.75,1.082
+Chain-of-Thought,39.5,79.5,29.0,0.82,1.131
