@@ -10,4 +10,4 @@
 
 [build.environment]
   NODE_VERSION = "18"
-  REACT_APP_API_URL = "PLACEHOLDER_BACKEND_URL"
+  REACT_APP_API_URL = "https://fynd-ai-backend.onrender.com/api"
