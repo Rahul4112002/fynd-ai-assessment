@@ -40,7 +40,6 @@ submissions.csv
 submissions.json
 *.db
 results_*.csv
-*.json
 
 # IDE
 .vscode/
