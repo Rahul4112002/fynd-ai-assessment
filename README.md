@@ -4,6 +4,10 @@
 **Email:** rahulchauhan4708@gmail.com  
 **Date:** December 7, 2025
 
+## Web Screenshot
+![collage](https://github.com/user-attachments/assets/606595e8-dddf-4222-8b2b-a2f4dc9a525e)
+
+
 [![User Dashboard](https://img.shields.io/badge/User_Dashboard-Live-brightgreen)](https://ai-feedback-system.netlify.app/)
 [![Admin Dashboard](https://img.shields.io/badge/Admin_Dashboard-Live-blue)](https://ai-feedback-system.netlify.app/admin)
 [![Backend API](https://img.shields.io/badge/Backend_API-Live-orange)](https://fynd-ai-backend.onrender.com/docs)
