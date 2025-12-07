@@ -1,7 +1,9 @@
 # Fynd AI Intern - Take Home Assessment Report
 
-**Submitted by:** [Your Name]  
-**Date:** December 6, 2025
+**Submitted by:** Rahul  
+**Email:** rahulchauhan4708@gmail.com  
+**Date:** December 7, 2025  
+**Completion Time:** ~12 hours
 
 ---
 
@@ -219,7 +221,7 @@ Modern client-server architecture with clear separation of concerns, RESTful API
 
 ### A. User Dashboard (Public-Facing)
 
-**URL**: https://your-frontend.netlify.app/
+**URL**: https://ai-feedback-system.netlify.app/
 
 **Features Implemented:**
 
@@ -283,7 +285,7 @@ Response:
 
 ### B. Admin Dashboard (Internal-Facing)
 
-**URL**: https://your-frontend.netlify.app/admin
+**URL**: https://ai-feedback-system.netlify.app/admin
 
 **Features Implemented:**
 
@@ -594,17 +596,17 @@ This assessment successfully demonstrated:
 5. ✅ **Deployment**: Both dashboards accessible via public URLs
 6. ✅ **Documentation**: Comprehensive reporting of approach and findings
 
-**Completion Time**: [Your completion time]
+**Completion Time**: Approximately 12 hours (efficient iteration and deployment)
 
 The project is production-ready for MVP deployment and demonstrates scalability considerations for future growth.
 
 ---
 
-## 🔗 Links
+## 🔗 Deployment Links
 
-- **GitHub Repository**: https://github.com/[your-username]/fynd-ai-assessment
-- **User Dashboard**: https://fynd-ai-user.netlify.app
-- **Admin Dashboard**: https://fynd-ai-user.netlify.app/admin
+- **GitHub Repository**: https://github.com/Rahul4112002/fynd-ai-assessment
+- **User Dashboard**: https://ai-feedback-system.netlify.app/
+- **Admin Dashboard**: https://ai-feedback-system.netlify.app/admin
 - **Backend API**: https://fynd-ai-backend.onrender.com
 - **API Documentation**: https://fynd-ai-backend.onrender.com/docs
 
