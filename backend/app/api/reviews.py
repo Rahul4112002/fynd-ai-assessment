@@ -58,11 +58,14 @@ async def enrich_review(review_id: int):
         
         # Generate AI insights if not already present
         if not review.get('ai_summary'):
+            print(f"Enriching review {review_id}: {review['review'][:50]}...")
             ai_summary = await AIService.generate_summary(review['review'])
             recommended_actions = await AIService.generate_recommended_actions(
                 review['rating'], 
                 review['review']
             )
+            
+            print(f"Enrichment complete. Summary: {ai_summary}")
             
             # Update would require modifying the CSV - for simplicity, return enriched data
             return {
@@ -76,4 +79,7 @@ async def enrich_review(review_id: int):
     except HTTPException:
         raise
     except Exception as e:
+        print(f"Error in enrich_review: {str(e)}")
+        import traceback
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=str(e))

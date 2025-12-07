@@ -46,11 +46,17 @@ Review: "{review}"
 Summary:"""
         
         try:
+            print(f"Generating summary for review: {review[:50]}...")
             response = model.generate_content(prompt)
-            return response.text.strip()
+            summary = response.text.strip()
+            print(f"Generated summary: {summary}")
+            return summary
         except Exception as e:
             print(f"Error generating summary: {str(e)}")
-            return "Unable to generate summary"
+            import traceback
+            traceback.print_exc()
+            # Return a meaningful fallback
+            return f"Customer feedback about their experience"
     
     @staticmethod
     async def generate_recommended_actions(rating: int, review: str) -> str:
@@ -68,11 +74,16 @@ Format your response EXACTLY like this:
 Keep each point concise (1-2 sentences max)."""
         
         try:
+            print(f"Generating actions for {rating}-star review...")
             response = model.generate_content(prompt)
-            return response.text.strip()
+            actions = response.text.strip()
+            print(f"Generated actions: {actions[:100]}...")
+            return actions
         except Exception as e:
             print(f"Error generating actions: {str(e)}")
-            return "• Follow up with customer\n• Review internal processes"
+            import traceback
+            traceback.print_exc()
+            return "• Follow up with customer\n• Review internal processes\n• Implement improvements based on feedback"
     
     @staticmethod
     async def predict_rating(review_text: str, approach: str = "few-shot") -> dict:
