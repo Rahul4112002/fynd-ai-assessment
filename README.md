@@ -1,378 +1,310 @@
-# Fynd AI Intern Assessment - Modern Stack Edition
-
-**FastAPI Backend + React Frontend with Neubrutalism UI**
-
-## 🚀 Live Deployments
-
-- **Frontend (User + Admin)**: [Deploy to Vercel/Netlify]
-- **Backend API**: [Deploy to Render/Railway]
-- **API Documentation**: [Your API URL]/docs
-
-## 📁 Project Structure
-
-```
-fynd-ai-assessment/
-├── backend/                    # FastAPI Backend
-│   ├── app/
-│   │   ├── api/               # API routes
-│   │   │   ├── reviews.py     # Review endpoints
-│   │   │   └── predictions.py # Prediction endpoints
-│   │   ├── models/            # Pydantic models
-│   │   │   └── schemas.py
-│   │   ├── services/          # Business logic
-│   │   │   ├── ai_service.py  # Gemini AI integration
-│   │   │   └── data_service.py # Data persistence
-│   │   └── main.py           # FastAPI app
-│   └── data/                  # Data storage
-│
-├── frontend/                   # React Frontend
-│   ├── public/
-│   ├── src/
-│   │   ├── components/        # React components
-│   │   │   ├── ReviewCard.js
-│   │   │   └── AnalyticsCharts.js
-│   │   ├── pages/            # Page components
-│   │   │   ├── UserPage.js   # User feedback page
-│   │   │   └── AdminPage.js  # Admin dashboard
-│   │   ├── services/         # API clients
-│   │   │   └── api.js
-│   │   ├── styles/           # CSS files
-│   │   │   └── neubrutalism.css # Neubrutalism theme
-│   │   ├── App.js
-│   │   └── index.js
-│   └── package.json
-│
-├── task1_rating_prediction.ipynb  # Task 1 Jupyter Notebook
-├── yelp.csv                       # Dataset
-├── .env                           # Environment variables
-├── requirements.txt               # Python dependencies
-├── pyproject.toml                 # UV configuration
-├── setup.bat                      # Automated setup script
-├── run_backend.bat                # Run FastAPI server
-├── run_frontend.bat               # Run React dev server
-└── README.md                      # This file
-```
-
-## ⚙️ Technology Stack
-
-### Backend
-- **FastAPI** - Modern, fast Python web framework
-- **Uvicorn** - ASGI server
-- **Pandas** - Data manipulation
-- **Google Gemini API** - AI/LLM integration
-- **Pydantic** - Data validation
-
-### Frontend
-- **React** - UI library
-- **React Router** - Navigation
-- **Axios** - HTTP client
-- **Recharts** - Charts and visualizations
-- **Neubrutalism CSS** - Bold, modern design system
-
-### Package Management
-- **UV** - Fast Python package manager
-- **npm** - Node.js package manager
-
-## 🛠️ Quick Setup
-
-### Prerequisites
-- Python 3.10+
-- Node.js 16+
-- UV package manager
-- Gemini API key (already in .env)
-
-### One-Command Setup
-
-```cmd
-setup.bat
-```
-
-This will:
-1. Install UV
-2. Create Python virtual environment
-3. Install Python dependencies
-4. Install Node.js dependencies
-5. Create data directory
-6. Verify .env file
-
-## 🎯 Running the Application
-
-### Option 1: Using Batch Files (Windows)
-
-**Terminal 1 - Backend:**
-```cmd
-run_backend.bat
-```
-
-**Terminal 2 - Frontend:**
-```cmd
-run_frontend.bat
-```
-
-### Option 2: Manual Commands
-
-**Terminal 1 - Backend:**
-```cmd
-.venv\Scripts\activate
-cd backend
-python -m uvicorn app.main:app --reload
-```
-
-**Terminal 2 - Frontend:**
-```cmd
-cd frontend
-npm start
-```
-
-### Access Points
-
-- **Frontend**: http://localhost:3000
-- **Backend API**: http://localhost:8000
-- **API Docs (Swagger)**: http://localhost:8000/docs
-- **API Docs (ReDoc)**: http://localhost:8000/redoc
-
-## 📊 Task 1: Rating Prediction (Jupyter Notebook)
-
-```cmd
-.venv\Scripts\activate
-jupyter notebook task1_rating_prediction.ipynb
-```
-
-The notebook implements three prompting approaches:
-1. **Zero-Shot** - Direct classification
-2. **Few-Shot** - Example-guided classification  
-3. **Chain-of-Thought** - Reasoning-based classification
-
-## 🌐 Task 2: Web Application
-
-### User Page (http://localhost:3000/)
-
-Features:
-- ⭐ Interactive star rating selector
-- 📝 Review text input
-- 🤖 AI-generated personalized responses
-- 🎨 Neubrutalism UI design
-
-### Admin Dashboard (http://localhost:3000/admin)
-
-Features:
-- 📊 Real-time analytics
-- 📈 Interactive charts (rating distribution, trends)
-- 💡 AI-generated review summaries
-- 🎯 AI-recommended actions
-- 🔍 Filtering and sorting
-- 🔄 Auto-refresh capability
-
-## 🎨 Neubrutalism Design System
-
-The frontend uses a modern Neubrutalism design with:
-- **Bold borders** (3px solid black)
-- **Brutal shadows** (offset box-shadows)
-- **Vibrant colors** (Yellow, Green, Pink, Cyan)
-- **Space Grotesk font**
-- **No border radius** (sharp corners)
-- **Playful interactions**
-
-### Color Palette
-```css
---color-primary: #FFD93D    (Yellow)
---color-secondary: #6BCF7F  (Green)
---color-accent: #FF6B9D     (Pink)
---color-info: #6BCFFF       (Cyan)
-```
-
-## 🔌 API Endpoints
-
-### Reviews
-- `POST /api/reviews/submit` - Submit new review
-- `GET /api/reviews/all` - Get all reviews
-- `GET /api/reviews/analytics` - Get analytics data
-- `POST /api/reviews/{id}/enrich` - Generate AI insights
-
-### Predictions
-- `POST /api/predictions/predict` - Predict rating (any approach)
-- `POST /api/predictions/predict/zero-shot` - Zero-shot prediction
-- `POST /api/predictions/predict/few-shot` - Few-shot prediction
-- `POST /api/predictions/predict/chain-of-thought` - CoT prediction
-
-Full API documentation: http://localhost:8000/docs
-
-## 🚢 Deployment
-
-### Backend (Render/Railway)
-
-1. **Create account** on Render.com or Railway.app
-2. **Connect GitHub** repository
-3. **Select** `backend` folder as root
-4. **Add environment variable**: `GEMINI_API_KEY`
-5. **Build command**: `pip install -r requirements.txt`
-6. **Start command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-
-### Frontend (Vercel/Netlify)
-
-1. **Create account** on Vercel or Netlify
-2. **Connect GitHub** repository
-3. **Select** `frontend` folder as root
-4. **Build command**: `npm run build`
-5. **Publish directory**: `build`
-6. **Add environment variable**: `REACT_APP_API_URL=<your-backend-url>`
-
-### Alternative: Full-Stack Deployment
-
-**Using Docker Compose** (create docker-compose.yml):
-```yaml
-version: '3.8'
-services:
-  backend:
-    build: ./backend
-    ports:
-      - "8000:8000"
-    environment:
-      - GEMINI_API_KEY=${GEMINI_API_KEY}
-  
-  frontend:
-    build: ./frontend
-    ports:
-      - "3000:3000"
-    environment:
-      - REACT_APP_API_URL=http://backend:8000
-```
-
-## 🧪 Testing
-
-### Backend
-```cmd
-cd backend
-pytest
-```
-
-### Frontend
-```cmd
-cd frontend
-npm test
-```
-
-### Manual Testing
-1. Submit reviews via User page
-2. View them in Admin dashboard
-3. Generate AI insights
-4. Check API responses in browser DevTools
-
-## 📦 Building for Production
-
-### Backend
-```cmd
-cd backend
-pip install -r requirements.txt
-```
-
-### Frontend
-```cmd
-cd frontend
-npm run build
-```
-
-Creates optimized production build in `frontend/build/`
-
-## 🔐 Environment Variables
-
-Create `.env` file in project root:
-
-```env
-GEMINI_API_KEY=your_gemini_api_key_here
-```
-
-Frontend environment (`.env` in `frontend/`):
-```env
-REACT_APP_API_URL=http://localhost:8000/api
-```
-
-## 🐛 Troubleshooting
-
-### Backend won't start
-```cmd
-# Check if port 8000 is in use
-netstat -ano | findstr :8000
-
-# Try different port
-uvicorn app.main:app --port 8001
-```
-
-### Frontend won't start
-```cmd
-# Clear npm cache
-npm cache clean --force
-
-# Delete node_modules and reinstall
-rmdir /s frontend\node_modules
-cd frontend
-npm install
-```
-
-### CORS errors
-- Ensure backend is running
-- Check CORS configuration in `backend/app/main.py`
-- Update allowed origins if needed
-
-### API connection issues
-- Verify backend URL in `frontend/src/services/api.js`
-- Check network tab in browser DevTools
-- Ensure both servers are running
-
-## 📚 Key Features
-
-### ✨ Backend Features
-- RESTful API design
-- Automatic API documentation (Swagger/ReDoc)
-- Request validation with Pydantic
-- Error handling and logging
-- CSV data persistence
-- Async/await support
-
-### ✨ Frontend Features
-- Single Page Application (SPA)
-- Client-side routing
-- Real-time data updates
-- Responsive design
-- Accessible UI components
-- Loading states and error handling
-
-### ✨ AI Features
-- Personalized user responses
-- Review summarization
-- Action recommendations
-- Multiple prediction approaches
-
-## 🎓 Learning Outcomes
-
-This project demonstrates:
-- ✅ Modern Python web development (FastAPI)
-- ✅ React frontend development
-- ✅ RESTful API design
-- ✅ LLM integration (Gemini)
-- ✅ UV package management
-- ✅ Component-based architecture
-- ✅ Neubrutalism design principles
-- ✅ Full-stack deployment
-
-## 📄 License
-
-This project is created for the Fynd AI Intern assessment.
-
-## 🤝 Contributing
-
-This is an assessment project, but suggestions are welcome!
-
-## 📞 Support
-
-For issues or questions:
-1. Check the troubleshooting section
-2. Review API documentation at `/docs`
-3. Check browser console for frontend errors
-4. Review terminal output for backend errors
+# 🚀 Fynd AI Intern - Take Home Assessment
+
+**Submitted by:** Rahul  
+**Email:** rahulchauhan4708@gmail.com  
+**Date:** December 7, 2025
+
+[![User Dashboard](https://img.shields.io/badge/User_Dashboard-Live-brightgreen)](https://ai-feedback-system.netlify.app/)
+[![Admin Dashboard](https://img.shields.io/badge/Admin_Dashboard-Live-blue)](https://ai-feedback-system.netlify.app/admin)
+[![Backend API](https://img.shields.io/badge/Backend_API-Live-orange)](https://fynd-ai-backend.onrender.com/docs)
 
 ---
 
-**Built with ❤️ for Fynd AI Intern Assessment**
+## 📋 Overview
 
-*Stack: FastAPI + React + Gemini AI + Neubrutalism UI*
+This repository contains my complete submission for the Fynd AI Intern Take Home Assessment, featuring:
+
+1. **Task 1**: Rating Prediction via Prompting (Jupyter Notebook)
+2. **Task 2**: AI-Powered Feedback System with User & Admin Dashboards (Full-Stack Web App)
+
+**Completion Time:** ~12 hours  
+**Tech Stack:** FastAPI, React, Google Gemini 2.5 Flash API, Pandas, Recharts
+
+---
+
+## 🌐 Live Deployments
+
+### 🎯 **Try the Live Applications:**
+
+| Dashboard | URL | Description |
+|-----------|-----|-------------|
+| **User Dashboard** | [ai-feedback-system.netlify.app](https://ai-feedback-system.netlify.app/) | Submit reviews and get AI responses |
+| **Admin Dashboard** | [ai-feedback-system.netlify.app/admin](https://ai-feedback-system.netlify.app/admin) | View analytics, manage reviews, generate AI insights |
+| **Backend API** | [fynd-ai-backend.onrender.com](https://fynd-ai-backend.onrender.com) | RESTful API server |
+| **API Docs** | [fynd-ai-backend.onrender.com/docs](https://fynd-ai-backend.onrender.com/docs) | Interactive Swagger documentation |
+
+---
+
+## 📁 Repository Structure
+
+```
+fynd-ai-assessment/
+├── 📓 task1_rating_prediction.ipynb    # Task 1: Jupyter Notebook
+├── 📊 task1_results/                   # Task 1: Evaluation results
+│   ├── results_zero_shot.csv
+│   ├── results_few_shot.csv
+│   ├── results_chain_of_thought.csv
+│   ├── all_results_combined.csv
+│   ├── metrics_comparison.csv
+│   └── task1_summary.json
+├── 🔧 backend/                         # Task 2: FastAPI Backend
+│   ├── app/
+│   │   ├── api/                        # API endpoints
+│   │   ├── models/                     # Pydantic schemas
+│   │   └── services/                   # Business logic & AI
+│   ├── requirements.txt
+│   └── render.yaml                     # Render deployment config
+├── 🎨 frontend/                        # Task 2: React Frontend
+│   ├── src/
+│   │   ├── components/                 # Reusable components
+│   │   ├── pages/                      # User & Admin dashboards
+│   │   ├── services/                   # API client
+│   │   └── styles/                     # Neubrutalism CSS
+│   ├── package.json
+│   └── netlify.toml                    # Netlify deployment config
+├── 📚 docs/                            # Additional documentation
+│   ├── API_DOCUMENTATION.md
+│   ├── DEPLOYMENT.md
+│   └── QUICKSTART.md
+├── 📄 SUBMISSION_REPORT.md             # Comprehensive report
+├── 📖 README.md                        # This file
+├── .gitignore
+├── requirements.txt                    # Python dependencies
+└── yelp.csv                            # Yelp dataset
+```
+
+---
+
+## 🎯 Task 1: Rating Prediction via Prompting
+
+### 📊 Results Summary
+
+Implemented and evaluated **3 prompting approaches** on 200 Yelp reviews:
+
+| Approach | Exact Accuracy | Within-1 Accuracy | MAE | RMSE | JSON Validity |
+|----------|---------------|-------------------|-----|------|---------------|
+| **Zero-Shot** | 45.5% | 78.5% | 0.67 | 0.89 | 98.0% |
+| **Few-Shot** ⭐ | **52.0%** | **85.0%** | **0.54** | **0.72** | **99.5%** |
+| **Chain-of-Thought** | 49.5% | 83.0% | 0.59 | 0.78 | 97.5% |
+
+**Winner:** Few-Shot Prompting (best accuracy-cost balance)
+
+### 🔍 Key Insights
+
+- **Few-Shot outperformed** by providing concrete examples for rating calibration
+- **Chain-of-Thought** showed strong reasoning but sometimes over-analyzed simple reviews
+- **JSON validity** consistently >97% across all approaches with proper prompt engineering
+- Common challenges: 4 vs 5-star differentiation, mixed-sentiment reviews
+
+### 📓 Notebook
+
+**File:** [`task1_rating_prediction.ipynb`](task1_rating_prediction.ipynb)
+
+**Contents:**
+- Dataset loading and sampling (200 reviews)
+- Implementation of all 3 prompting approaches
+- Comprehensive evaluation metrics
+- Visualizations and comparison tables
+- Prompt iteration documentation
+
+---
+
+## 🌐 Task 2: AI Feedback System
+
+### 🏗️ Architecture
+
+```
+┌─────────────────────┐
+│   Frontend (React)  │
+│  Netlify CDN        │  ← User & Admin Dashboards
+└──────────┬──────────┘
+           │ HTTPS/REST
+           ▼
+┌─────────────────────┐
+│  Backend (FastAPI)  │
+│  Render.com         │  ← API Server
+└──────────┬──────────┘
+           │
+           ├─────► CSV Storage
+           └─────► Gemini 2.5 Flash API
+```
+
+### ✨ Features
+
+#### 👤 User Dashboard
+- ⭐ Interactive 1-5 star rating selector
+- ✍️ Review text input with real-time feedback
+- 🤖 AI-generated personalized responses
+- 🎨 Bold Neubrutalism design (custom CSS)
+
+#### 👨‍💼 Admin Dashboard
+- 📊 Real-time metrics (total reviews, avg rating, sentiment breakdown)
+- 📈 Interactive charts (rating distribution, trend analysis)
+- 📋 Complete review list with filtering & sorting
+- 🧠 On-demand AI insights (summary + recommended actions)
+- 🎨 Sentiment-based color coding (green/yellow/red)
+
+### 🛠️ Tech Stack
+
+**Backend:**
+- FastAPI (Python 3.13) - High-performance async API
+- Google Gemini 2.5 Flash - AI integration
+- Pandas - Data processing
+- Pydantic - Schema validation
+- Uvicorn - ASGI server
+
+**Frontend:**
+- React 18.2 - UI library
+- React Router 6 - Client-side routing
+- Recharts - Data visualization
+- Axios - HTTP client
+- Custom Neubrutalism CSS - Bold modern design
+
+**Deployment:**
+- Netlify - Frontend CDN hosting
+- Render - Backend API hosting
+- GitHub - Version control
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Python 3.10+
+- Node.js 18+
+- Google Gemini API key
+
+### 1️⃣ Clone Repository
+```bash
+git clone https://github.com/Rahul4112002/fynd-ai-assessment.git
+cd fynd-ai-assessment
+```
+
+### 2️⃣ Backend Setup
+```bash
+# Create virtual environment
+python -m venv .venv
+.venv\Scripts\activate  # Windows
+# source .venv/bin/activate  # Mac/Linux
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Set up environment variables
+echo GEMINI_API_KEY=your_api_key_here > .env
+
+# Run backend
+cd backend
+uvicorn app.main:app --reload
+```
+
+Backend will run at: http://localhost:8000
+
+### 3️⃣ Frontend Setup
+```bash
+# In a new terminal
+cd frontend
+
+# Install dependencies
+npm install
+
+# Run frontend
+npm start
+```
+
+Frontend will run at: http://localhost:3000
+
+### 4️⃣ Access Dashboards
+- **User Dashboard:** http://localhost:3000/
+- **Admin Dashboard:** http://localhost:3000/admin
+- **API Docs:** http://localhost:8000/docs
+
+---
+
+## 📚 Documentation
+
+| Document | Description |
+|----------|-------------|
+| [SUBMISSION_REPORT.md](SUBMISSION_REPORT.md) | Comprehensive report covering both tasks, design decisions, evaluation, and learnings |
+| [docs/API_DOCUMENTATION.md](docs/API_DOCUMENTATION.md) | Complete API reference with endpoints and schemas |
+| [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) | Deployment guides for Netlify and Render |
+| [docs/QUICKSTART.md](docs/QUICKSTART.md) | 5-minute setup guide |
+
+---
+
+## 🎨 Design Highlights
+
+### Neubrutalism UI
+- **Bold Borders:** 3px solid black outlines
+- **Brutal Shadows:** 4px offset for depth
+- **Vibrant Colors:** Yellow (#FFD93D), Green (#6BCF7F), Pink (#FF6B9D)
+- **Sharp Corners:** No border radius
+- **High Contrast:** Excellent accessibility
+- **Space Grotesk Font:** Modern geometric typeface
+
+### UX Decisions
+- **Lazy-loaded AI insights** - Reduces API costs, faster initial load
+- **Sentiment color coding** - Quick visual feedback for admins
+- **Real-time metrics** - Immediate data visibility
+- **Responsive design** - Works on all screen sizes
+
+---
+
+## 🔍 Evaluation & Learnings
+
+### Task 1 Learnings
+✅ Few-shot prompting beats complex reasoning for structured tasks  
+✅ Explicit JSON schemas dramatically improve validity (60% → 99%)  
+✅ Prompt iteration is 80% of accuracy improvements  
+✅ Multiple metrics reveal different performance aspects  
+
+### Task 2 Learnings
+✅ FastAPI + React = clean separation of concerns  
+✅ CSV sufficient for MVP, plan migration path early  
+✅ Graceful error handling improves trust  
+✅ Bold design creates memorable experiences  
+
+---
+
+## 📦 Deliverables
+
+- ✅ GitHub Repository (this repo)
+- ✅ Task 1 Jupyter Notebook
+- ✅ Task 2 Full-Stack Application
+- ✅ User Dashboard (deployed)
+- ✅ Admin Dashboard (deployed)
+- ✅ Backend API (deployed)
+- ✅ Comprehensive Documentation
+- ✅ Evaluation Results & Comparison Tables
+
+---
+
+## 🚀 Future Enhancements
+
+### Potential Improvements
+- [ ] Real-time updates via WebSockets
+- [ ] PostgreSQL migration for scalability
+- [ ] Email notifications for admin
+- [ ] Export analytics (PDF/CSV)
+- [ ] Multi-language support
+- [ ] A/B testing for AI responses
+- [ ] Ensemble approach combining multiple prompts
+- [ ] Confidence scores for predictions
+
+---
+
+## 🤝 Contact
+
+**Rahul**  
+📧 Email: rahulchauhan4708@gmail.com  
+🔗 GitHub: [@Rahul4112002](https://github.com/Rahul4112002)
+
+---
+
+## 📄 License
+
+This project was created as part of the Fynd AI Intern assessment.
+
+---
+
+**⭐ If you're evaluating this project, please check out the [live dashboards](https://ai-feedback-system.netlify.app/) and [comprehensive report](SUBMISSION_REPORT.md)!**
